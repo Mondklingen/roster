@@ -1,0 +1,7 @@
+*.tar
+*.gz
+.settings/
+.project
+.buildpath
+plugin.tar.gz
+build/*

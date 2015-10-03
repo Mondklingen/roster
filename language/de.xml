@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd"
+	languagecode="de">
+	<category name="cms.acp.content">
+        <item name="cms.acp.content.type.herolist.phoenix-plugins.de">
+            <![CDATA[WOW Gilden Roster]]>
+		</item>
+
+		<item name="PLATZHALTER"><![CDATA[Gildendaten]]></item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.guild">
+			<![CDATA[Gildenname]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.guild_description">
+			<![CDATA[Tragt bitte hier Euren Gildenname ein.]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.realm">
+			<![CDATA[Realm]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.guild">
+			<![CDATA[Tragt bitte hier Euren Realmnamen ein auf dem sich die befindet.]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.key">
+			<![CDATA[API-Key]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.key_description1">
+			<![CDATA[Den benötigten API Key können Sie bei <a href="http://dev.battle.net">dev.battle.net</a> anfordern.]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.key_description2">
+			<![CDATA[Registieren Sie sich, und kopieren Sie den API Key aus ihrem Profil in die Einstellungen dieses Plugins]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local">
+			<![CDATA[Lokalesierung]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_description">
+			<![CDATA[Bitte wähl Euren Realm/Sprach Standort hier aus.]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Europa]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_de">
+			<![CDATA[de]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_en">
+			<![CDATA[en]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_fr">
+			<![CDATA[fr]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_es">
+			<![CDATA[es]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_ru">
+			<![CDATA[ru]]>
+		</item>
+
+        <item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_it">
+			<![CDATA[it]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_amerika">
+			<![CDATA[Amerika]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.local_us">
+			<![CDATA[us]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.guildrank">
+			<![CDATA[Gildenrank]]>
+		</item>
+
+
+		<item name="PLATZHALTER">
+			<![CDATA[Gebt hier bitte Eure Rangnamen bzw. den Link zum Gildenrank Banner hier an.]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 1(Standart Rang: Gildenmeister)]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 2]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 3]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 4]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 5]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 6]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 7]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 8]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 9]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Rang 10]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Fraktion]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Wählt Eure Fraktion aus.]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Horde]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Allianz]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Memberhintergrund]]>
+		</item>
+
+
+		<item name="PLATZHALTER">
+			<![CDATA[Wählt eines der Hinteründe aus oder gebt ein Paht zum Bild an(min. Größe h=450 X b=220px).]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Bild 1]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Bild 2]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Bild 3]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Bild 4]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Bild 5]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[Bild 6]]>
+		</item>
+
+		<item name="PLATZHALTER">
+			<![CDATA[URL zum Bild (mögliche Formate: .png; .jpg; .gif)]]>
+		</item>
+
+	</category>
+</language>

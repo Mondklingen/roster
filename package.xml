@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="herolist.phoenix-plugins.de" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename>World of Warcraft Gild Hero List</packagename>
+		<packagedescription>World of Warcraft Guild Member List for Fireball CMS - Alpha</packagedescription>
+		<plugin>de.codequake.cms</plugin>
+		<version>0.1.1 Alpha 1</version>
+		<date>2015-09-27</date>
+	</packageinformation>
+
+	<authorinformation>
+		<author>Rene Gerritsen</author>
+		<authorurl>http://www.phoenix-plugins.de</authorurl>
+	</authorinformation>
+
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="2.0.0 Beta 8">de.codequake.cms</requiredpackage>
+	</requiredpackages>
+
+	<instructions type="install">
+		<instruction type="file" application="cms">files.tar</instruction>
+		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
+		<instruction type="language">language/*.xml</instruction>
+		<instruction type="objectType">xml/objectType.xml</instruction>
+	</instructions>
+
+</package>

@@ -77,6 +77,32 @@
         <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_description{/lang}</p>
     </dd>
 
+<!--  hordeOrAlliance -->
+
+        <dt>
+        <label for="hordeOrAlliance">
+            {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction{/lang}
+        </label>
+    </dt>
+    <dd>
+        <select id="hordeOrAlliance" name="contentData[hordeOrAlliance]">
+            <option
+                value="1"
+                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+            >
+                {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_horde{/lang}
+            </option>
+            <option
+                value="2"
+                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+            >
+                {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_alliance{/lang}
+            </option>
+        </select>
+        <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_description{/lang}</p>
+    </dd>
+
+
     <dt>
         <label for=guildrank>
             {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.guildrank{/lang}

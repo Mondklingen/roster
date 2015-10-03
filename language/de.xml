@@ -85,6 +85,22 @@
 			<![CDATA[Gildenrank]]>
 		</item>
 
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction">
+			<![CDATA[Fraktion]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_description">
+			<![CDATA[Wählt Eure Fraktion aus.]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_horde">
+			<![CDATA[Horde]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_alliance">
+			<![CDATA[Allianz]]>
+		</item>
+
 
 		<item name="PLATZHALTER">
 			<![CDATA[Gebt hier bitte Eure Rangnamen bzw. den Link zum Gildenrank Banner hier an.]]>
@@ -128,22 +144,6 @@
 
 		<item name="PLATZHALTER">
 			<![CDATA[Rang 10]]>
-		</item>
-
-		<item name="PLATZHALTER">
-			<![CDATA[Fraktion]]>
-		</item>
-
-		<item name="PLATZHALTER">
-			<![CDATA[Wählt Eure Fraktion aus.]]>
-		</item>
-
-		<item name="PLATZHALTER">
-			<![CDATA[Horde]]>
-		</item>
-
-		<item name="PLATZHALTER">
-			<![CDATA[Allianz]]>
 		</item>
 
 		<item name="PLATZHALTER">

@@ -50,6 +50,8 @@ class MemberListContentType extends AbstractContentType
         $memberList->setLocal($content->local);
         $memberList->setGuildrankPrefix($content->guildrank);
         $memberList->setMemberBackground($content->memberbackground);
+        $memberList->setRankHeadings($content->rankHeadings);
+        $memberList->setHordeOrAlliance($content->hordeOrAlliance);
         $memberList->render();
     }
 }
@@ -75,6 +77,9 @@ class MemberListContentType extends AbstractContentType
  */
 class MemberList
 {
+    const HORDE = 1;
+    const ALLIANCE = 2;
+
     /**
      * Base Information which data
      */
@@ -86,6 +91,8 @@ class MemberList
     protected $fields = 'members';
     protected $guildrankPrefix = 'A_';
     protected $memberBackground = 'http://bilder.mmorpg-mondklingen.de/bg/A_bg.png';
+    protected $hordeOrAlliance;
+    protected $rankHeadings;
 
     /**
      * Constants. Mapping between German Names and Battle.net API ids
@@ -228,6 +235,51 @@ class MemberList
     public function setMemberBackground($memberBackground)
     {
         $this->memberBackground = $memberBackground;
+    }
+
+    /**
+     * Get Horde or Alliance
+     *
+     * @return integer
+     */
+    public function getHordeOrAlliance()
+    {
+        return $this->hordeOrAlliance;
+    }
+
+    /**
+     * Set Horde Or Alliance
+     *
+     * @param integer $hordeOrAlliance
+     */
+    public function setHordeOrAlliance($hordeOrAlliance)
+    {
+        if ($hordeOrAlliance == self::HORDE) {
+            $this->hordeOrAlliance = self::HORDE;
+            return;
+        }
+        $this->hordeOrAlliance = self::ALLIANCE;
+
+    }
+
+    /**
+     * Sets the Rank Headings
+     *
+     * @param array $rankHeadings
+     */
+    public function setRankHeadings($rankHeadings)
+    {
+
+    }
+
+    /**
+     * Get Rank Heading by Id
+     *
+     * @return null
+     */
+    public function getRankHeadingById($rankId)
+    {
+        return $this->rankHeadings[$rankId];
     }
 
     /**

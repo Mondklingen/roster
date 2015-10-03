@@ -4,5 +4,27 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../woltlab" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../woltlab" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/../woltlab/wcf/lib/system/api/phpline/phpline.phar" />
+          <root url="phar://$MODULE_DIR$/../woltlab/WCFSetup/install/files/lib/system/api/phpline/phpline.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/../woltlab/wcf/lib/system/api/phpline/phpline.phar" />
+          <root url="phar://$MODULE_DIR$/../woltlab/WCFSetup/install/files/lib/system/api/phpline/phpline.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

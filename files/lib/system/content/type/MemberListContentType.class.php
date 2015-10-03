@@ -50,7 +50,7 @@ class MemberListContentType extends AbstractContentType
         $memberList->setLocal($content->local);
         $memberList->setGuildrankPrefix($content->guildrank);
         $memberList->setMemberBackground($content->memberbackground);
-        $memberList->setRankHeadings($content->rankHeadings);
+        $memberList->setRankHeadings($content);
         $memberList->setHordeOrAlliance($content->hordeOrAlliance);
         $memberList->render();
     }
@@ -92,6 +92,7 @@ class MemberList
     protected $guildrankPrefix = 'A_';
     protected $memberBackground = 'http://bilder.mmorpg-mondklingen.de/bg/A_bg.png';
     protected $hordeOrAlliance;
+    /** @var Content */
     protected $rankHeadings;
 
     /**
@@ -206,11 +207,22 @@ class MemberList
     }
 
     /**
+     * Gets Guildrank Prefix
+     * @deprecated
+     *
      * @return string
      */
     public function getGuildrankPrefix()
     {
-        return $this->guildrankPrefix;
+        if ($this->getHordeOrAlliance() === self::HORDE) {
+            return 'H_';
+        }
+
+        if ($this->getHordeOrAlliance() === self::ALLIANCE) {
+            return 'A_';
+        }
+
+        return '';
     }
 
     /**
@@ -265,21 +277,35 @@ class MemberList
     /**
      * Sets the Rank Headings
      *
-     * @param array $rankHeadings
+     * @param Content $rankHeadings
      */
     public function setRankHeadings($rankHeadings)
     {
-
+        $this->rankHeadings = $rankHeadings;
     }
 
     /**
      * Get Rank Heading by Id
      *
-     * @return null
+     * @return array
      */
     public function getRankHeadingById($rankId)
     {
-        return $this->rankHeadings[$rankId];
+        $rankId--;
+
+        $text = $this->rankHeadings->__get('rank_' . $rankId);
+        $isText = $this->rankHeadings->__get('rank_'. $rankId. '_is_image') == 1;
+        $link = '';
+        if ($isText) {
+            $link = $text;
+        }
+
+        $return = array();
+        $return['text'] = $text;
+        $return['link'] = $link;
+        $return['isText'] = $isText;
+
+        return $return;
     }
 
     /**
@@ -487,16 +513,29 @@ class MemberList
         $linkImage = $this->baseUrl . '/class/thumbnail/' . $classId . '.gif';
         $achievementPoints = $member['character']['achievementPoints'];
 
+
+        $rankHeading = $this->getRankHeadingById($rankId);
+        $rankHeadingText = $rankHeading['text'];
+        $rankHeaderImageLink = $rankHeading['link'];
+
         if ($currentRank === null) {
             $currentRank = $rank;
-            echo '<img class="clearfix" src="' . $this->baseUrl . '/class/thumbnail/guildrank/' . $this->guildrankPrefix . lcfirst($rank) . '.png">';
+            if ($rankHeading['isText']) {
+                echo "<h2>$rankHeadingText</h2>";
+            } else {
+                echo '<img class="clearfix" src="' . $this->baseUrl . '/class/thumbnail/guildrank/' . $rankHeaderImageLink . '">';
+            }
             echo '<div class="clearfix">';
 
         }
 
         if ($currentRank !== $rank) {
             echo '</div>';
-            echo '<img class="clearfix" src="' . $this->baseUrl . '/class/thumbnail/guildrank/' . $this->guildrankPrefix . lcfirst($rank) . '.png">';
+            if ($rankHeading['isText']) {
+                echo "<h2>$rankHeadingText</h2>";
+            } else {
+                echo '<img class="clearfix" src="' . $this->baseUrl . '/class/thumbnail/guildrank/' . $rankHeaderImageLink . '">';
+            }
             echo '<div class="clearfix">';
             $currentRank = $rank;
         }

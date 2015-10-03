@@ -101,57 +101,64 @@
 			<![CDATA[Allianz]]>
 		</item>
 
+        <item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes">
+			<![CDATA[Ist ein Text]]>
+		</item>
 
-		<item name="PLATZHALTER">
+        <item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no">
+			<![CDATA[Ist ein Bild]]>
+		</item>
+
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.ranks">
 			<![CDATA[Gebt hier bitte Eure Rangnamen bzw. den Link zum Gildenrank Banner hier an.]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.1">
 			<![CDATA[Rang 1(Standart Rang: Gildenmeister)]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.2">
 			<![CDATA[Rang 2]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.3">
 			<![CDATA[Rang 3]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.4">
 			<![CDATA[Rang 4]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.5">
 			<![CDATA[Rang 5]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.6">
 			<![CDATA[Rang 6]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.7">
 			<![CDATA[Rang 7]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.8">
 			<![CDATA[Rang 8]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.9">
 			<![CDATA[Rang 9]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.10">
 			<![CDATA[Rang 10]]>
 		</item>
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.memberbackground">
 			<![CDATA[Memberhintergrund]]>
 		</item>
 
 
-		<item name="PLATZHALTER">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.memberbackground_description">
 			<![CDATA[Wählt eines der Hinteründe aus oder gebt ein Paht zum Bild an(min. Größe h=450 X b=220px).]]>
 		</item>
 

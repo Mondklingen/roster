@@ -1,6 +1,7 @@
 <?php
 
 namespace cms\system\rooster;
+use cms\data\content\Content;
 
 /**
  * Class MemberList

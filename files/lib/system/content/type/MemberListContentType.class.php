@@ -10,7 +10,6 @@ use cms\data\content\Content;
  *
  * WARING: This is a Alpha Version !
  * ---------------------------------
- * Graphics are stored on Mondklingen Webspace !
  * Use this Extension only if u know what your doing !
  *
  * @version 0.1.0 Alpha !

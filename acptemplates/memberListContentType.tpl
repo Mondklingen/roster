@@ -6,7 +6,7 @@
     </dt>
     <dd>
         <input id="realm" name="contentData[realm]" value="{if $contentData['realm']|isset}{$contentData['realm']}{/if}"/>
-        <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.guild{/lang}</p>
+        <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.realm_description{/lang}</p>
     </dd>
 
     <dt>
@@ -39,37 +39,37 @@
         <select id="local" name="contentData[local]">
             <option
                 value="1"
-                {if $contentData['local']|isset && $content['local']=='1'}selected=selected{/if}
+                {if $contentData['local']|isset && $contentData['local']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_de{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['local']|isset && $content['local']=='2'}selected=selected{/if}
+                {if $contentData['local']|isset && $contentData['local']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_en{/lang}
             </option>
             <option
                 value="3"
-                {if $contentData['local']|isset && $content['local']=='3'}selected=selected{/if}
+                {if $contentData['local']|isset && $contentData['local']=='3'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_fr{/lang}
             </option>
             <option
                 value="4"
-                {if $contentData['local']|isset && $content['local']=='4'}selected=selected{/if}
+                {if $contentData['local']|isset && $contentData['local']=='4'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_es{/lang}
             </option>
             <option
                 value="5"
-                {if $contentData['local']|isset && $content['local']=='5'}selected=selected{/if}
+                {if $contentData['local']|isset && $contentData['local']=='5'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_ru{/lang}
             </option>
             <option
                 value="6"
-                {if $contentData['local']|isset && $content['local']=='6'}selected=selected{/if}
+                {if $contentData['local']|isset && $contentData['local']=='6'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_it{/lang}
             </option>
@@ -121,13 +121,13 @@
         <select id="rank_1_is_image" name="contentData[rank_is_image_1]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_1']|isset && $contentData['rank_is_image_1']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_1']|isset && $contentData['rank_is_image_1']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -144,13 +144,13 @@
         <select id="rank_2_is_image" name="contentData[rank_is_image_2]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_2']|isset && $contentData['rank_is_image_2']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_2']|isset && $contentData['rank_is_image_2']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -167,13 +167,13 @@
         <select id="rank_3_is_image" name="contentData[rank_is_image_3]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_3']|isset && $contentData['rank_is_image_3']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_3']|isset && $contentData['rank_is_image_3']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -190,13 +190,13 @@
         <select id="rank_4_is_image" name="contentData[rank_is_image_4]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_4']|isset && $contentData['rank_is_image_4']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_4']|isset && $contentData['rank_is_image_4']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -213,13 +213,13 @@
         <select id="rank_5_is_image" name="contentData[rank_is_image_5]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_5']|isset && $contentData['rank_is_image_5']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_5']|isset && $contentData['rank_is_image_5']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -236,13 +236,13 @@
         <select id="rank_6_is_image" name="contentData[rank_is_image_6]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_6']|isset && $contentData['rank_is_image_6']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_6']|isset && $contentData['rank_is_image_6']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -259,13 +259,13 @@
         <select id="rank_7_is_image" name="contentData[rank_is_image_7]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_7']|isset && $contentData['rank_is_image_7']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_7']|isset && $contentData['rank_is_image_7']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -282,13 +282,13 @@
         <select id="rank_8_is_image" name="contentData[rank_is_image_8]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_8']|isset && $contentData['rank_is_image_8']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_8']|isset && $contentData['rank_is_image_8']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -305,13 +305,13 @@
         <select id="rank_9_is_image" name="contentData[rank_is_image_9]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_9']|isset && $contentData['rank_is_image_9']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_9']|isset && $contentData['rank_is_image_9']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -328,13 +328,13 @@
         <select id="rank_10_is_image" name="contentData[rank_is_image_10]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['rank_is_image_10']|isset && $contentData['rank_is_image_10']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_yes{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['rank_is_image_10']|isset && $contentData['rank_is_image_10'] == '2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.isimage_no{/lang}
             </option>
@@ -360,16 +360,16 @@
     <dd>
         <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.memberbackground_description{/lang}</p>
         <fieldset class="member-bg-images">
-            <input type="radio" id="picture_1" name="picture" value="1"><label for="picture_1"> <img src="/upload/cms/images/wowrooster/background/bg1.png"></label><br>
-            <input type="radio" id="picture_2" name="picture" value="2"><label for="picture_2"> <img src="/upload/cms/images/wowrooster/background/bg2.png"></label><br>
-            <input type="radio" id="picture_3" name="picture" value="3"><label for="picture_3"> <img src="/upload/cms/images/wowrooster/background/bg3.png"></label><br>
-            <input type="radio" id="picture_4" name="picture" value="4"><label for="picture_4"> <img src="/upload/cms/images/wowrooster/background/bg4.png"></label><br>
-            <input type="radio" id="picture_5" name="picture" value="5"><label for="picture_5"> <img src="/upload/cms/images/wowrooster/background/bg5.png"></label><br>
-            <input type="radio" id="picture_6" name="picture" value="6"><label for="picture_6"> <img src="/upload/cms/images/wowrooster/background/bg6.png"></label><br>
-            <input type="radio" id="picture_7" name="picture" value="7"><label for="picture_7"> <img src="/upload/cms/images/wowrooster/background/bg7.png"></label><br>
-            <input type="radio" id="picture_8" name="picture" value="8"><label for="picture_8"> <img src="/upload/cms/images/wowrooster/background/bg8.png"></label><br>
-            <input type="radio" id="picture_9" name="picture" value="9"><label for="picture_9"> <img src="/upload/cms/images/wowrooster/background/bg9.png"></label><br>
-            <input type="radio" id="picture_10" name="picture" value="10"><label for="picture_10"> <img src="/upload/cms/images/wowrooster/background/bg10.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==1}checked{/if}{/if} id="picture_1" name="contentData[picture]" value="1"><label for="picture_1"> <img src="/upload/cms/images/wowrooster/background/bg1.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==2}checked{/if}{/if} id="picture_2" name="contentData[picture]" value="2"><label for="picture_2"> <img src="/upload/cms/images/wowrooster/background/bg2.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==3}checked{/if}{/if} id="picture_3" name="contentData[picture]" value="3"><label for="picture_3"> <img src="/upload/cms/images/wowrooster/background/bg3.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==4}checked{/if}{/if} id="picture_4" name="contentData[picture]" value="4"><label for="picture_4"> <img src="/upload/cms/images/wowrooster/background/bg4.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==5}checked{/if}{/if} id="picture_5" name="contentData[picture]" value="5"><label for="picture_5"> <img src="/upload/cms/images/wowrooster/background/bg5.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==6}checked{/if}{/if} id="picture_6" name="contentData[picture]" value="6"><label for="picture_6"> <img src="/upload/cms/images/wowrooster/background/bg6.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==7}checked{/if}{/if} id="picture_7" name="contentData[picture]" value="7"><label for="picture_7"> <img src="/upload/cms/images/wowrooster/background/bg7.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==8}checked{/if}{/if} id="picture_8" name="contentData[picture]" value="8"><label for="picture_8"> <img src="/upload/cms/images/wowrooster/background/bg8.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==9}checked{/if}{/if} id="picture_9" name="contentData[picture]" value="9"><label for="picture_9"> <img src="/upload/cms/images/wowrooster/background/bg9.png"></label><br>
+            <input type="radio" {if $contentData['picture']|isset}{if $contentData['picture']==10}checked{/if}{/if} id="picture_10" name="contentData[picture]" value="10"><label for="picture_10"> <img src="/upload/cms/images/wowrooster/background/bg10.png"></label><br>
         </fieldset>
         <p>Custom Background</p>
         <input id="memberbackground" name="contentData[memberbackground]" value="{if $contentData['memberbackground']|isset}{$contentData['memberbackground']}{/if}"/>

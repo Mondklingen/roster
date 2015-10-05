@@ -44,14 +44,15 @@ class MemberListContentType extends AbstractContentType
     {
 
         $memberList = new MemberList();
-        $memberList->setRealm($content->realm);
-        $memberList->setGuild($content->guild);
-        $memberList->setKey($content->key);
-        $memberList->setLocal($content->local);
-        $memberList->setGuildrankPrefix($content->guildrank);
-        $memberList->setMemberBackground($content->memberbackground);
+        $memberList->setRealm($content->__get('realm'));
+        $memberList->setGuild($content->__get('guild'));
+        $memberList->setKey($content->__get('key'));
+        $memberList->setLocal($content->__get('local'));
+        $memberList->setGuildrankPrefix($content->__get('guildrank'));
+        $memberList->setMemberBackground($content->__get('memberbackground'));
         $memberList->setRankHeadings($content);
-        $memberList->setHordeOrAlliance($content->hordeOrAlliance);
+        $memberList->setBackgroundPicture($content->__get('picture'));
+        $memberList->setHordeOrAlliance($content->__get('hordeOrAlliance'));
         $memberList->render();
     }
 }
@@ -91,6 +92,7 @@ class MemberList
     protected $fields = 'members';
     protected $guildrankPrefix = 'A_';
     protected $memberBackground = 'http://bilder.mmorpg-mondklingen.de/bg/A_bg.png';
+    protected $backgroundPicture = '';
     protected $hordeOrAlliance;
     /** @var Content */
     protected $rankHeadings;
@@ -291,10 +293,10 @@ class MemberList
      */
     public function getRankHeadingById($rankId)
     {
-        $rankId--;
+        $rankId++;
 
         $text = $this->rankHeadings->__get('rank_' . $rankId);
-        $isText = $this->rankHeadings->__get('rank_'. $rankId. '_is_image') == 1;
+        $isText = $this->rankHeadings->__get('rank_is_image_'. $rankId) == 1;
         $link = '';
         if ($isText) {
             $link = $text;
@@ -306,6 +308,26 @@ class MemberList
         $return['isText'] = $isText;
 
         return $return;
+    }
+
+    /**
+     * Get Background Picture
+     *
+     * @return string
+     */
+    public function getBackgroundPicture()
+    {
+        return $this->backgroundPicture;
+    }
+
+    /**
+     * Set Background Picture
+     *
+     * @param string $backgroundPicture
+     */
+    public function setBackgroundPicture($backgroundPicture)
+    {
+        $this->backgroundPicture = $backgroundPicture;
     }
 
     /**
@@ -542,7 +564,11 @@ class MemberList
 
         ?>
         <div class="member-box hvr-grow"
-             style="background-image: url(<?php echo $this->memberBackground; ?>);"
+                <?php if($this->memberBackground === '') { ?>
+                     style="background-image: url(<?php echo '/upload/cms/images/wowrooster/background/bg'. $this->getBackgroundPicture() .'.png'; ?>);"
+                <?php } else { ?>
+                     style="background-image: url(<?php echo $this->getMemberBackground(); ?>);"
+                <?php } ?>
             >
             <?php echo $this->renderBoxHeader($color, $name, $rankId); ?>
             <table>

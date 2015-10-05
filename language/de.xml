@@ -7,8 +7,6 @@
             <![CDATA[WOW Gilden Roster]]>
 		</item>
 
-		<item name="PLATZHALTER"><![CDATA[Gildendaten]]></item>
-
 		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.guild">
 			<![CDATA[Gildenname]]>
 		</item>
@@ -21,7 +19,7 @@
 			<![CDATA[Realm]]>
 		</item>
 
-		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.guild">
+		<item name="cms.acp.content.type.herolist.phoenix-plugins.de.input.realm_description">
 			<![CDATA[Tragt bitte hier Euren Realmnamen ein auf dem sich die befindet.]]>
 		</item>
 

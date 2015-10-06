@@ -2,6 +2,7 @@
 
 namespace cms\system\rooster;
 use cms\data\content\Content;
+use wcf\system\request\RouteHandler;
 
 /**
  * Class MemberList
@@ -12,7 +13,6 @@ use cms\data\content\Content;
  * @todo Move Inline HTML to Template
  * @todo improve Blizard API and implement API Exceptions
  * @todo apply WCF Code Style
- * @todo extract CSS
  * @todo use LESS instead of CSS
  * @todo find useful default Values
  * @todo continue Refactoring
@@ -624,8 +624,6 @@ class MemberList
     public function render()
     {
 
-        $this->renderSytle();
-
         /**
          * Main Program !
          * This is where the Magic happens.
@@ -654,153 +652,4 @@ class MemberList
         echo '</div>';
     }
 
-    private function renderSytle()
-    {
-        ?>
-        <style>
-            /*
-           // ------------------------------
-           // Import External Style Sheets
-           // ------------------------------
-           */
-            @import url(https://fonts.googleapis.com/css?family=Metal+Mania);
-
-            /*
-            // ----------
-            // Member Box
-            // ----------
-            */
-            .member-box {
-                color: white;
-                float: left;
-                margin: 1.5em;
-                width: 360px;
-                padding: 19px;
-                border-radius: 8px;
-            }
-
-            /*
-            // --------------------------
-            // Box Image and Char Images
-            // --------------------------
-            */
-            .box-image {
-                position: relative;
-            }
-
-            .role_thumb {
-                height: 32px;
-                width: 32px;
-                position: absolute;
-                top: 25px;
-                left: 75px;
-            }
-
-            .special_thumb {
-                height: 32px;
-                width: 32px;
-                position: absolute;
-                border-radius: 40px;
-                top: 60px;
-                left: 75px;
-            }
-
-            .class_thumb {
-                height: 32px;
-                width: 32px;
-                position: absolute;
-                top: -10px;
-                left: 75px;
-            }
-
-            .rank_thumb {
-                height: 32px;
-                width: 32px;
-                margin-right: 0.5em;
-                float: left;
-            }
-
-            /*
-            // ------------------
-            // Box Content Data
-            // ------------------
-            */
-
-            .box-right {
-                margin-left: 2em;
-            }
-
-            .char_name {
-                font-family: 'Metal Mania', cursive;
-                font-size: 24px;
-                margin-bottom: -0.25em;
-                font-weight: lighter;
-                display: block;
-            }
-
-            .char_name:first-letter {
-                font-weight: bold;
-                font-size: 1.3em;
-            }
-
-            .level {
-                position: absolute;
-                left: 30px;
-                top: 140px;
-                width: 59px;
-                height: 64px;
-                padding-left: 12px;
-                padding-top: 16px;
-                font-weight: 900;
-                color: white;
-                text-shadow: 0px 0px 5px rgba(255, 100, 100, 1);
-                font-size: 1.5em;
-                background: url(http://bilder.mmorpg-mondklingen.de/bg/lvl_bg.png) no-repeat;
-            }
-
-            .achievementPoints {
-                font-size: 1.5em;
-            }
-
-            /*
-            // ------------------
-            // Clearfix for simple Responcive Image
-            // ------------------
-            */
-            .clearfix:before, .clearfix:after {
-                content: " ";
-                display: table
-            }
-
-            .clearfix:after {
-                clear: both
-            }
-
-            /*
-            // ----------
-            // Animations
-            // ----------
-            */
-            .hvr-grow {
-                display: inline-block;
-                vertical-align: middle;
-                -webkit-transform: translateZ(0);
-                transform: translateZ(0);
-                box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-                -moz-osx-font-smoothing: grayscale;
-                -webkit-transition-duration: 0.3s;
-                transition-duration: 0.3s;
-                -webkit-transition-property: transform;
-                transition-property: transform;
-            }
-
-            .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
-                -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-            }
-        </style>
-        <?php
-    }
 }

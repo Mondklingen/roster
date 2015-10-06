@@ -5,3 +5,4 @@
 .buildpath
 plugin.tar.gz
 build/*
+.idea

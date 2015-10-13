@@ -279,7 +279,14 @@ class MemberList extends RoosterCollection
         $Key = $this->key;
         $Local = $this->local;
         $Fields = $this->fields;
-        $data = @file_get_contents('https://eu.api.battle.net/wow/guild/' . $Realm . '/' . $Guild . '?fields=' . $Fields . '&locale=' . $Local . '&apikey=' . $Key . '');
+        $url = 'https://eu.api.battle.net/wow/guild/' . $Realm . '/' . $Guild . '?fields=' . $Fields . '&locale=' . $Local . '&apikey=' . $Key . '';
+        $arrContextOptions = array(
+            "ssl" => array(
+                "verify_peer" => false,
+                "verify_peer_name" => false,
+            ),
+        );
+        $data = @file_get_contents($url, false, stream_context_create($arrContextOptions));
         $decoded = json_decode($data, true);
 
         return $decoded;

@@ -3,6 +3,7 @@ namespace cms\system\content\type;
 
 use cms\data\content\Content;
 use cms\system\rooster\MemberList;
+use wcf\system\WCF;
 
 /**
  * Member List Content Type
@@ -54,5 +55,10 @@ class MemberListContentType extends AbstractContentType
         $memberList->setBackgroundPicture($content->__get('picture'));
         $memberList->setHordeOrAlliance($content->__get('hordeOrAlliance'));
         $memberList->render();
+
+        WCF::getTPL()->assign(array(
+            'members' => $memberList
+        ));
+        return WCF::getTPL()->fetch('wowRoosterMemberList', 'cms');
     }
 }

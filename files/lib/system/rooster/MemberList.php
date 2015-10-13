@@ -635,17 +635,23 @@ class MemberList
         // We Requesting Guild List for Mondklingen on Blackmoore
         $decoded = $this->getGuildData();
 
-        $members = $decoded[$this->fields];
+        $rawMembers = $decoded[$this->fields];
 
-        uasort($members, array($this, 'compareByRank'));
+        uasort($rawMembers, array($this, 'compareByRank'));
         $currentRank = null;
+
+        $memberObjects = array();
+        $inflector = new Inflector();
+        // Output Member List
+        foreach ($rawMembers as $member) {
+            $memberObjects = new RoosterMember($inflector, $member);
+        }
 
         /**
          * Starts the Output
          */
-
         // Output Member List
-        foreach ($members as $member) {
+        foreach ($rawMembers as $member) {
             $this->printMember($member, $currentRank);
         }
         // Yes its ugly !

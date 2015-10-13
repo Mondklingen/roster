@@ -269,6 +269,8 @@ class MemberList extends RoosterCollection
     /**
      * Request Data From Blizzard and decode to Array
      *
+     * @todo create Mapping for Special Name. Maybe Translation File
+     *
      * @return array
      */
     private function getGuildData()
@@ -277,7 +279,8 @@ class MemberList extends RoosterCollection
         $Realm = urlencode($this->realm);
         $Guild = urlencode($this->guild);
         $Key = $this->key;
-        $Local = $this->local;
+        /** @todo make Local Dynamic */
+        $Local = 'de_DE';//$this->local;
         $Fields = $this->fields;
         $url = 'https://eu.api.battle.net/wow/guild/' . $Realm . '/' . $Guild . '?fields=' . $Fields . '&locale=' . $Local . '&apikey=' . $Key . '';
         $arrContextOptions = array(

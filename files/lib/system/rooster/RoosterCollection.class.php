@@ -98,7 +98,7 @@ class RoosterCollection extends RoosterObject implements \Iterator
      *
      * @return RoosterMember[]
      */
-    public function getMember()
+    public function getMembers()
     {
         return $this;
     }

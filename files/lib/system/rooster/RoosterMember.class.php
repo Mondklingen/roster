@@ -129,7 +129,7 @@ class RoosterMember extends RoosterObject
      *
      * @return string
      */
-    public function getMemberImage()
+    public function getImage()
     {
        return
            "http://eu.battle.net/static-render/eu/"

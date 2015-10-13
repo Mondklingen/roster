@@ -77,6 +77,16 @@ class RoosterObject implements \ArrayAccess
         if ($offsetSet) {
             return $this->data[$offset];
         }
+
+        $methodName = lcfirst($offset);
+        $methodExists = method_exists(
+            $this,
+            $methodName
+        );
+        if ($methodExists) {
+            return $this->$methodName();
+        }
+
         $methodName = $this->getMethodNameForOffset($offset);
         $methodExists = method_exists(
             $this,

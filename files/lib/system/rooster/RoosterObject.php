@@ -27,14 +27,14 @@ class RoosterObject implements \ArrayAccess
      *
      * A Single Wow Member
      *
-     * @param Inflector $inflector
      * @param array $data
      *
      * @link http://dev.battle.net
      */
-    function __construct(Inflector $inflector, array $data)
+    function __construct(array $data)
     {
         $this->data = $data;
+        $inflector = new Inflector();
         $this->inflector = $inflector;
     }
 
@@ -98,6 +98,7 @@ class RoosterObject implements \ArrayAccess
      * The value to set.
      * </p>
      * @return RoosterMember
+     * @throws \Exception
      */
     public function offsetSet($offset, $value)
     {
@@ -115,6 +116,8 @@ class RoosterObject implements \ArrayAccess
             $this->$methodName($value);
             return $this;
         }
+
+        throw new \Exception("Method or Offset '$offset' not Found.");
     }
 
     /**
@@ -125,6 +128,7 @@ class RoosterObject implements \ArrayAccess
      * The offset to unset.
      * </p>
      * @return RoosterMember
+     * @throws \Exception
      */
     public function offsetUnset($offset)
     {
@@ -142,6 +146,7 @@ class RoosterObject implements \ArrayAccess
             $this->$methodName(null);
             return $this;
         }
+        throw new \Exception("Method or Offset '$offset' not Found.");
     }
 
     /**

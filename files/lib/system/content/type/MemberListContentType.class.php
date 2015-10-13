@@ -14,7 +14,7 @@ use wcf\system\WCF;
  * ---------------------------------
  * Use this Extension only if u know what your doing !
  *
- * @version 0.1.0 Alpha !
+ * @version 0.1.2 Alpha !
  * @author Rene Gerritsen <rene.gerritsen@me.com>
  * @copyright 2015 Rene Gerritsen
  * @license Affero General Public License <https://gnu.org/licenses/agpl.html>
@@ -44,21 +44,17 @@ class MemberListContentType extends AbstractContentType
     public function getOutput(Content $content)
     {
 
-        $memberList = new MemberList();
+        $memberList = new MemberList(array());
         $memberList->setRealm($content->__get('realm'));
         $memberList->setGuild($content->__get('guild'));
         $memberList->setKey($content->__get('key'));
         $memberList->setLocal($content->__get('local'));
-        $memberList->setGuildrankPrefix($content->__get('guildrank'));
+        $memberList->setGuildRankPrefix($content->__get('guildrank'));
         $memberList->setMemberBackground($content->__get('memberbackground'));
         $memberList->setRankHeadings($content);
         $memberList->setBackgroundPicture($content->__get('picture'));
         $memberList->setHordeOrAlliance($content->__get('hordeOrAlliance'));
-        $memberList->render();
+        return $memberList->render();
 
-        WCF::getTPL()->assign(array(
-            'members' => $memberList
-        ));
-        return WCF::getTPL()->fetch('wowRoosterMemberList', 'cms');
     }
 }

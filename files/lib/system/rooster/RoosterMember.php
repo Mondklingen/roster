@@ -71,7 +71,7 @@ class RoosterMember extends RoosterObject
      */
     function getRankIcon()
     {
-        $rankIndex = $this->data['rank'];
+        $rankIndex = $this->getRankIndex();
         return $this->baseUrl
         . "/class/thumbnail/rank/"
         . $rankIndex
@@ -271,6 +271,67 @@ class RoosterMember extends RoosterObject
        . '/simple';
     }
 
+    /**
+     * Gets The Rank Name based on Rank Index
+     * !!!! The Rank Name is custom made by Guild Master !!!!
+     *
+     * @return string
+     */
+    function getRankName()
+    {
+        $rankIndex = $this->getRankIndex();
+
+        $rang = array(
+            0 => "Gildenleitung",
+            1 => "Gildenleitung",
+            2 => "Gildenmeister Twink",
+            3 => "Gildenrat",
+            4 => "Raidleiter",
+            5 => "Raidmember",
+            6 => "Member",
+            7 => "Twink",
+            8 => "inaktiv",
+            9 => "trial"
+        );
+
+        if (!array_key_exists($rankIndex, $rang)) {
+            return $rankIndex;
+        }
+
+        return $rang[$rankIndex];
+    }
+
+
+    /**
+     * Gets Class Name by Class Index
+     *
+     * @return string
+     */
+    function getClassName()
+    {
+        $classIndex = $this->getClassIndex();
+
+        $class = array(
+            static::Krieger => "Krieger",
+            static::Paladin => "Paladin",
+            static::Jaeger => "Jäger",
+            static::Schurke => "Schurke",
+            static::Priester => "Priester",
+            static::Todesritter => "Todesritter",
+            static::Schamane => "Schamane",
+            static::Magier => "Magier",
+            static::Hexenmeister => "Hexenmeister",
+            static::Moench => "Mönch",
+            static::Druide => "Druide"
+        );
+
+        if (!array_key_exists($classIndex, $class)) {
+            return $classIndex;
+        }
+
+        return $class[$classIndex];
+    }
+
 
     /**
      * Gets the Class Index
@@ -290,6 +351,16 @@ class RoosterMember extends RoosterObject
     private function getSpecialName()
     {
         return $this->data['character']['spec']['name'];
+    }
+
+    /**
+     * Returns the Rank Index
+     *
+     * @return mixed
+     */
+    public function getRankIndex()
+    {
+        return $this->data['rank'];
     }
 
 }

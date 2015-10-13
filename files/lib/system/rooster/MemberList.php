@@ -3,6 +3,7 @@
 namespace cms\system\rooster;
 use cms\data\content\Content;
 use wcf\system\request\RouteHandler;
+use wcf\system\WCF;
 
 /**
  * Class MemberList
@@ -10,7 +11,6 @@ use wcf\system\request\RouteHandler;
  *
  * For a list of possible refactorings check TodoList of Member List Class
  *
- * @todo Move Inline HTML to Template
  * @todo improve Blizard API and implement API Exceptions
  * @todo apply WCF Code Style
  * @todo use LESS instead of CSS
@@ -18,9 +18,9 @@ use wcf\system\request\RouteHandler;
  * @todo continue Refactoring
  *
  * @author Rene Gerritsen <rene.gerritsen@me.com>
- * @package cms\system\content\type
+ * @package cms\system\rooster
  */
-class MemberList
+class MemberList extends RoosterCollection
 {
     const HORDE = 1;
     const ALLIANCE = 2;
@@ -34,7 +34,7 @@ class MemberList
     protected $key = '5etvhcrs28dsebngqjhxnsfjydw6pv6z';
     protected $local = 'de_DE';
     protected $fields = 'members';
-    protected $guildrankPrefix = 'A_';
+    protected $guildRankPrefix = 'A_';
     protected $memberBackground = 'http://bilder.mmorpg-mondklingen.de/bg/A_bg.png';
     protected $backgroundPicture = '';
     protected $hordeOrAlliance;
@@ -42,19 +42,18 @@ class MemberList
     protected $rankHeadings;
 
     /**
-     * Constants. Mapping between German Names and Battle.net API ids
+     * A List of Rooster Member
+     *
+     * @var RoosterMember[]
      */
-    const Krieger = 1;
-    const Paladin = 2;
-    const Jaeger = 3;
-    const Schurke = 4;
-    const Priester = 5;
-    const Todesritter = 6;
-    const Schamane = 7;
-    const Magier = 8;
-    const Hexenmeister = 9;
-    const Moench = 10;
-    const Druide = 11;
+    protected $member;
+
+    /**
+     * Collection of Ranks
+     *
+     * @var GuildRank[]
+     */
+    protected $ranks;
 
     /**
      * @return mixed
@@ -158,7 +157,7 @@ class MemberList
      *
      * @return string
      */
-    public function getGuildrankPrefix()
+    public function getGuildRankPrefix()
     {
         if ($this->getHordeOrAlliance() === self::HORDE) {
             return 'H_';
@@ -172,11 +171,11 @@ class MemberList
     }
 
     /**
-     * @param string $guildrankPrefix
+     * @param string $guildRankPrefix
      */
-    public function setGuildrankPrefix($guildrankPrefix)
+    public function setGuildRankPrefix($guildRankPrefix)
     {
-        $this->guildrankPrefix = $guildrankPrefix;
+        $this->guildRankPrefix = $guildRankPrefix;
     }
 
     /**
@@ -231,30 +230,6 @@ class MemberList
     }
 
     /**
-     * Get Rank Heading by Id
-     *
-     * @return array
-     */
-    public function getRankHeadingById($rankId)
-    {
-        $rankId++;
-
-        $text = $this->rankHeadings->__get('rank_' . $rankId);
-        $isText = $this->rankHeadings->__get('rank_is_image_'. $rankId) == 1;
-        $link = '';
-        if ($isText) {
-            $link = $text;
-        }
-
-        $return = array();
-        $return['text'] = $text;
-        $return['link'] = $link;
-        $return['isText'] = $isText;
-
-        return $return;
-    }
-
-    /**
      * Get Background Picture
      *
      * @return string
@@ -275,151 +250,6 @@ class MemberList
     }
 
     /**
-     * Gets the Color of a Class by its Class Index
-     *
-     * @param integer $classIndex
-     *
-     * @return string
-     */
-    function getClassColor($classIndex)
-    {
-        $color = array(
-            static::Krieger => "#C79C63",
-            static::Paladin => "#F58CBA",
-            static::Jaeger => "#ABD473",
-            static::Schurke => "#FFF569",
-            static::Priester => "#FFFFFF",
-            static::Todesritter => "#C41F3B",
-            static::Schamane => "#0070DE",
-            static::Magier => "#96CCF0",
-            static::Hexenmeister => "#9482C9",
-            static::Moench => "#00FF96",
-            static::Druide => "#FF7D0A"
-        );
-        if (!array_key_exists($classIndex, $color)) {
-            return $classIndex;
-        }
-
-        return $color[$classIndex];
-    }
-
-    /**
-     * Gets the Special Icon Link by Class Index and Special Name.
-     * The Icon is an Images hosted on Webserver
-     *
-     * @param integer $classIndex
-     * @param string $specialName
-     *
-     * @return string
-     */
-    function getSpecialIcon($classIndex, $specialName)
-    {
-
-        $translate = array(
-            static::Krieger => "krieger",
-            static::Paladin => "paladin",
-            static::Jaeger => "jaeger",
-            static::Schurke => "schurke",
-            static::Priester => "priester",
-            static::Todesritter => "todesritter",
-            static::Schamane => "schamane",
-            static::Magier => "magier",
-            static::Hexenmeister => "hexenmeister",
-            static::Moench => "moench",
-            static::Druide => "druide"
-        );
-
-        $specialName = lcfirst($specialName);
-        // Replace German "Umlauts"
-        $specialName = str_replace('ä', 'ae', $specialName);
-        $specialName = str_replace('ü', 'ue', $specialName);
-        $specialName = str_replace('ö', 'oe', $specialName);
-
-        return $this->baseUrl . "/class/thumbnail/special/"
-        . $translate[$classIndex]
-        . '_'
-        . $specialName
-        . '.png';
-    }
-
-    /**
-     * Gets Rank Icon Link by Rank Index
-     * The Icon is a Image hosted on BASE_URL Server
-     *
-     * @param integer $rankIndex
-     *
-     * @return string
-     */
-    function getRankIcon($rankIndex)
-    {
-
-        return $this->baseUrl . "/class/thumbnail/rank/"
-        . $rankIndex
-        . '.png';
-    }
-
-
-    /**
-     * Gets The Rank Name based on Rank Index
-     * !!!! The Rank Name is custom made by Guild Master !!!!
-     *
-     * @param integer $rankIndex
-     *
-     * @return string
-     */
-    function getRankName($rankIndex)
-    {
-        $rang = array(
-            0 => "Gildenleitung",
-            1 => "Gildenleitung",
-            2 => "Gildenmeister Twink",
-            3 => "Gildenrat",
-            4 => "Raidleiter",
-            5 => "Raidmember",
-            6 => "Member",
-            7 => "Twink",
-            8 => "inaktiv",
-            9 => "trial"
-        );
-
-        if (!array_key_exists($rankIndex, $rang)) {
-            return $rankIndex;
-        }
-
-        return $rang[$rankIndex];
-    }
-
-    /**
-     * Gets Class Name by Class Index
-     *
-     * @param integer $classIndex
-     *
-     * @return string
-     */
-    function getClassName($classIndex)
-    {
-        $class = array(
-            static::Krieger => "Krieger",
-            static::Paladin => "Paladin",
-            static::Jaeger => "Jäger",
-            static::Schurke => "Schurke",
-            static::Priester => "Priester",
-            static::Todesritter => "Todesritter",
-            static::Schamane => "Schamane",
-            static::Magier => "Magier",
-            static::Hexenmeister => "Hexenmeister",
-            static::Moench => "Mönch",
-            static::Druide => "Druide"
-        );
-
-        if (!array_key_exists($classIndex, $class)) {
-            return $classIndex;
-        }
-
-        return $class[$classIndex];
-    }
-
-    /**
      * Compare 2 Member by Rank
      *
      * @param array $a
@@ -437,174 +267,11 @@ class MemberList
     }
 
     /**
-     * Gets the Role Image Link
-     *
-     * @param string $role
-     *
-     * @return string
-     */
-    function getRoleImage($role)
-    {
-        return $this->baseUrl . '/class/thumbnail/' . $role . '.gif';
-    }
-
-
-    /**
-     * Prints a Member
-     *
-     * @param string $member
-     * @param string $currentRank Call by Refference !!! *
-     * @return void
-     */
-    function printMember($member, &$currentRank)
-    {
-        $level = $member['character']['level'];
-        if ($level <= 10) {
-            return;
-        }
-        if (!isset($member['character']['spec'])) {
-            return;
-        }
-
-        $name = $member['character']['name'];
-        $classId = $member['character']['class'];
-        $class = $this->getClassName($classId);
-        $color = $this->getClassColor($classId);
-        $rankId = $member['rank'];
-        $rank = $this->getRankName($rankId);
-
-        $spec = $member['character']['spec']['name'];
-        $role = $member['character']['spec']['role'];
-        $link = $member['character']['thumbnail'];
-        $linkImage = $this->baseUrl . '/class/thumbnail/' . $classId . '.gif';
-        $achievementPoints = $member['character']['achievementPoints'];
-
-
-        $rankHeading = $this->getRankHeadingById($rankId);
-        $rankHeadingText = $rankHeading['text'];
-        $rankHeaderImageLink = $rankHeading['link'];
-
-        if ($currentRank === null) {
-            $currentRank = $rank;
-            if ($rankHeading['isText']) {
-                echo "<h2>$rankHeadingText</h2>";
-            } else {
-                echo '<img class="clearfix" src="' . $this->baseUrl . '/class/thumbnail/guildrank/' . $rankHeaderImageLink . '">';
-            }
-            echo '<div class="clearfix">';
-
-        }
-
-        if ($currentRank !== $rank) {
-            echo '</div>';
-            if ($rankHeading['isText']) {
-                echo "<h2>$rankHeadingText</h2>";
-            } else {
-                echo '<img class="clearfix" src="' . $this->baseUrl . '/class/thumbnail/guildrank/' . $rankHeaderImageLink . '">';
-            }
-            echo '<div class="clearfix">';
-            $currentRank = $rank;
-        }
-
-        ?>
-        <div class="member-box hvr-grow"
-                <?php if($this->memberBackground === '') { ?>
-                     style="background-image: url(<?php echo '/upload/cms/images/wowrooster/background/bg'. $this->getBackgroundPicture() .'.png'; ?>);"
-                <?php } else { ?>
-                     style="background-image: url(<?php echo $this->getMemberBackground(); ?>);"
-                <?php } ?>
-            >
-            <?php echo $this->renderBoxHeader($color, $name, $rankId); ?>
-            <table>
-                <tr>
-                    <td>
-                        <?php echo $this->renderCharImage($link, $linkImage, $role, $classId, $spec); ?>
-                    </td>
-                    <td>
-                        <?php echo $this->getBoxRight($achievementPoints, $name); ?>
-                    </td>
-                </tr>
-            </table>
-            <div class="box-footer">
-                <div class="level"> <?php echo $level ?></div>
-            </div>
-        </div>
-        <?php
-    }
-
-    /**
-     * Renders Right side of the Box
-     *
-     * @param $achievementPoints
-     * @param $name
-     *
-     * @return string
-     */
-    function getBoxRight($achievementPoints, $name)
-    {
-        ?>
-        <div class="box-right">
-            <p class="achievementPoints">
-                <img src="<?php echo $this->baseUrl . '/class/thumbnail/erfolgspunkte.png'; ?>">
-                <?php echo $achievementPoints; ?> <br>&nbsp;
-            </p>
-
-            <p class="hvr-grow">
-                <a href="http://eu.battle.net/wow/de/character/blackmoore/<?php echo urldecode($name) ?>/simple">
-                    <img src="<?php echo $this->baseUrl; ?>/class/thumbnail/arsenal.png">
-                </a>
-            </p>
-        </div>
-        <?php
-    }
-
-    /**
-     * Renders the Character Image
-     *
-     * @param string $link
-     * @param string $linkImage
-     * @param string $role
-     * @param string $classId
-     * @param string $spec
-     * @return string
-     * @internal param $rankId
-     */
-    function renderCharImage($link, $linkImage, $role, $classId, $spec)
-    {
-        ?>
-        <div class="box-image">
-            <img src="http://eu.battle.net/static-render/eu/<?php echo $link; ?>">
-            <img class="class_thumb" src="<?php echo $linkImage ?>">
-            <img class="role_thumb" src="<?php echo $this->getRoleImage($role); ?>">
-            <img class="special_thumb" src="<?php echo $this->getSpecialIcon($classId, $spec); ?>">
-        </div>
-        <?php
-    }
-
-    /**
-     * Renders Box Header
-     *
-     * @param string $color
-     * @param string $name
-     *
-     * @return string
-     */
-    function renderBoxHeader($color, $name, $rankId)
-    {
-        ?>
-        <div class="box-header">
-            <img class="rank_thumb" src="<?php echo $this->getRankIcon($rankId); ?>">
-            <span class="char_name" style="color:  <?php echo $color; ?>"><?php echo $name; ?></span><br/>
-        </div>
-        <?php
-    }
-
-    /**
-     * Request Data From Bilzard and decode to Array
+     * Request Data From Blizzard and decode to Array
      *
      * @return array
      */
-    function getGuildData()
+    private function getGuildData()
     {
         $data = null;
         $Realm = urlencode($this->realm);
@@ -619,43 +286,87 @@ class MemberList
     }
 
     /**
+     * Init the Rooster Member Array
+     *
+     * @return RoosterMember[]
+     */
+    public function getMember()
+    {
+        if (empty($this->member) || $this->member === null) {
+            $this->initMembers();
+        }
+
+        return $this->member;
+    }
+
+    /**
+     * Gets the Ranks
+     *
+     * @return GuildRank[]
+     */
+    public function getRanks()
+    {
+        if (empty($this->ranks) || $this->ranks === null)  {
+            $this->initMembers();
+        }
+
+        return $this->ranks;
+    }
+
+    /**
+     * Inits the Member Array
+     *
+     * @return $this
+     */
+    private function initMembers()
+    {
+        $decoded = $this->getGuildData();
+        $rawMembers = $decoded[$this->fields];
+        uasort($rawMembers, array($this, 'compareByRank'));
+        $this->member = array();
+        foreach ($rawMembers as $member) {
+            $roosterMember = new RoosterMember($member);
+            $this->member[] = $roosterMember;
+        }
+        $this->initRanks();
+
+        return $this;
+    }
+
+    /**
+     * Init Ranks
+     *
+     * @return $this
+     */
+    private function initRanks()
+    {
+        $currentRank = null;
+        /** @var RoosterMember $member */
+        foreach ($this->member as $member) {
+            $rankId = $member->getRankIndex();
+            if (!isset($this->ranks[(int)$rankId])) {
+                $guildRank = new GuildRank(array());
+                $this->ranks[(int)$rankId] = $guildRank;
+                $guildRank->setName($this->rankHeadings->__get('rank_' . $rankId));
+                $guildRank->setIsText($this->rankHeadings->__get('rank_is_image_'. $rankId) == 1);
+            }
+            $this->ranks[(int)$rankId]->addMember($member);
+        }
+
+        return $this;
+    }
+
+    /**
      * Renders the List
+     *
+     * @return String
      */
     public function render()
     {
-
-        /**
-         * Main Program !
-         * This is where the Magic happens.
-         * Fetches Guild Data, Sorts Members, by Ranke and displays them by direct output.
-         * See Todos Section in Class DOC Block for Information about possible refactorings !
-         */
-
-        // Get Data from dev.battle.net Web Service
-        // We Requesting Guild List for Mondklingen on Blackmoore
-        $decoded = $this->getGuildData();
-
-        $rawMembers = $decoded[$this->fields];
-
-        uasort($rawMembers, array($this, 'compareByRank'));
-        $currentRank = null;
-
-        $memberObjects = array();
-        $inflector = new Inflector();
-        // Output Member List
-        foreach ($rawMembers as $member) {
-            $memberObjects = new RoosterMember($inflector, $member);
-        }
-
-        /**
-         * Starts the Output
-         */
-        // Output Member List
-        foreach ($rawMembers as $member) {
-            $this->printMember($member, $currentRank);
-        }
-        // Yes its ugly !
-        echo '</div>';
+        WCF::getTPL()->assign(array(
+            'ranks' => $this->getRanks(),
+            'memberList' => $this
+        ));
+        return WCF::getTPL()->fetch('wowRoosterMemberList', 'cms');
     }
-
 }

@@ -71,7 +71,7 @@ class RoosterMember extends RoosterObject
     {
         $rankIndex = $this->getRankIndex();
         return $this->baseUrl
-        . "/class/thumbnail/rank/"
+        . "/images/wowrooster/rank/"
         . $rankIndex
         . '.png';
     }
@@ -148,7 +148,7 @@ class RoosterMember extends RoosterObject
     {
         $classIndex = $this->getClassIndex();
         $classThumbImageLink = $this->baseUrl
-            . '/class/thumbnail/'
+            . '/images/wowrooster/class/'
             . $classIndex
             . '.gif';
 
@@ -170,7 +170,7 @@ class RoosterMember extends RoosterObject
         $role = $this->data['character']['spec']['role'];
 
         $roleThumbnailImageLink = $this->baseUrl .
-            '/class/thumbnail/' .
+            '/images/wowrooster/special/' .
             $role .
             '.gif';
 
@@ -213,7 +213,7 @@ class RoosterMember extends RoosterObject
         $specialName = str_replace('ö', 'oe', $specialName);
 
         return $this->baseUrl
-        . "/class/thumbnail/special/"
+        . "/images/wowrooster/special/"
         . $translate[$classIndex]
         . '_'
         . $specialName
@@ -230,7 +230,7 @@ class RoosterMember extends RoosterObject
      */
     public function getAchievementPointsImageUrl()
     {
-        return $this->baseUrl . '/class/thumbnail/erfolgspunkte.png';
+        return $this->baseUrl . '/images/wowrooster/erfolgspunkte.png';
     }
 
     /**
@@ -240,7 +240,7 @@ class RoosterMember extends RoosterObject
      */
     public function getBattleNetArsenalUrl()
     {
-        return $this->baseUrl . '/class/thumbnail/arsenal.png';
+        return $this->baseUrl . '/images/wowrooster/arsenal.png';
     }
 
     /**

@@ -39,14 +39,6 @@ class GuildRank extends RoosterCollection
     protected $isText;
 
     /**
-     * Base Url
-     *
-     * @var string
-     */
-    protected $baseUrl = 'http://bilder.mmorpg-mondklingen.de';
-
-
-    /**
      * Gets Rank Name
      *
      * @return string

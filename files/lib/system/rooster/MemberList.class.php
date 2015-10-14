@@ -276,8 +276,8 @@ class MemberList extends RoosterCollection
     private function getGuildData()
     {
         $data = null;
-        $Realm = urlencode($this->realm);
-        $Guild = urlencode($this->guild);
+        $Realm = rawurlencode($this->realm);
+        $Guild = rawurlencode($this->guild);
         $Key = $this->key;
         /** @todo make Local Dynamic */
         $Local = 'de_DE';//$this->local;

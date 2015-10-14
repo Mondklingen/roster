@@ -15,6 +15,8 @@ namespace cms\system\rooster;
 class RoosterMember extends RoosterObject
 {
 
+    protected $realm;
+
     /**
      * Definition of Class by Index
      * @todo Use International Const Names
@@ -30,6 +32,26 @@ class RoosterMember extends RoosterObject
     const Hexenmeister = 9;
     const Moench = 10;
     const Druide = 11;
+
+    /**
+     * Get Realm
+     *
+     * @return string
+     */
+    public function getRealm()
+    {
+        return $this->realm;
+    }
+
+    /**
+     * Set Realm
+     *
+     * @param string $realm
+     */
+    public function setRealm($realm)
+    {
+        $this->realm = $realm;
+    }
 
     /**
      * Returns the Level of this Char
@@ -257,14 +279,12 @@ class RoosterMember extends RoosterObject
     /**
      * Get Battle Net Account Link
      *
-     * @todo make Battle Net URL Dynamic
-     * @todo make Realm Dynamic
-     *
      * @return string
      */
     public function getBattleNetAccountLink()
     {
-       return 'http://eu.battle.net/wow/de/character/blackmoore/'
+        $realm = rawurlencode($this->getRealm());
+       return "http://eu.battle.net/wow/de/character/$realm/"
        . urldecode($this->getName())
        . '/simple';
     }

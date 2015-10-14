@@ -347,6 +347,7 @@ class MemberList extends RoosterCollection
         $this->member = array();
         foreach ($rawMembers as $member) {
             $roosterMember = new RoosterMember($member);
+            $roosterMember->setRealm($this->getRealm());
             $this->member[] = $roosterMember;
         }
         $this->initRanks();

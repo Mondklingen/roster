@@ -1,5 +1,5 @@
 {foreach from=$ranks item=rank}
-    {if $rank.isIsText()}
+    {if $rank->isIsText()}
         <h2>{$rank.name}</h2>
     {else}
         <img class="clearfix" src="{$rank.image}">
@@ -8,9 +8,9 @@
         {if $member.canRender}
             <div class="member-box hvr-grow"
                     {if $memberList.memberBackground === ''}
-                         style="background-image: url('/upload/cms/images/wowrooster/background/bg{$memberList.backgroundPicture}.png');"
+                         style="background-image: url('/upload/cms/images/wowrooster/background/bg{$memberList.backgroundPicture}.png')"
                     {else}
-                         style="background-image: url({$memberList.memberBackground});"
+                         style="background-image: url({$memberList.memberBackground})"
                     {/if}
                 >
                 <div class="box-header">

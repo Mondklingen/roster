@@ -44,7 +44,7 @@
                     </tr>
                 </table>
                 <div class="box-footer">
-                    <div class="level"> {$member.level}</div>
+                    <div class="level" style="background: url({$memberList.fractionBackground}) no-repeat;"> {$member.level}</div>
                 </div>
             </div>
         {/if}

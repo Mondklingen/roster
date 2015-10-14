@@ -220,6 +220,18 @@ class MemberList extends RoosterCollection
     }
 
     /**
+     * Get Fraction Background
+     *
+     * @return string
+     */
+    public function getFractionBackground()
+    {
+        $basePath = WCF::getPath('cms');
+        $fraction = ($this->getHordeOrAlliance() === static::HORDE)?'horde':'alliance';
+        return $basePath . "/images/wowrooster/background/$fraction.png";
+    }
+
+    /**
      * Sets the Rank Headings
      *
      * @param Content $rankHeadings

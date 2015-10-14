@@ -1,7 +1,7 @@
 <?php
 
 namespace cms\system\rooster;
-
+use wcf\system\WCF;
 
 /**
  * Class RoosterObject
@@ -33,6 +33,7 @@ class RoosterObject implements \ArrayAccess
      */
     function __construct(array $data)
     {
+        $this->baseUrl = WCF::getPath('cms');
         $this->data = $data;
         $inflector = new Inflector();
         $this->inflector = $inflector;

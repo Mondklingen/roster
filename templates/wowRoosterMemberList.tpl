@@ -8,7 +8,7 @@
         {if $member.canRender}
             <div class="member-box hvr-grow"
                     {if $memberList.memberBackground === ''}
-                         style="background-image: url('/upload/cms/images/wowrooster/background/bg{$memberList.backgroundPicture}.png')"
+                         style="background-image: url('{$memberList.backgroundPicture}')"
                     {else}
                          style="background-image: url({$memberList.memberBackground})"
                     {/if}

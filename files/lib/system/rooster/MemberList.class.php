@@ -28,14 +28,13 @@ class MemberList extends RoosterCollection
     /**
      * Base Information which data
      */
-    protected $baseUrl = "http://bilder.mmorpg-mondklingen.de";
-    protected $realm = 'Blackmoore';
-    protected $guild = 'Mondklingen';
-    protected $key = '5etvhcrs28dsebngqjhxnsfjydw6pv6z';
+    protected $realm = '';
+    protected $guild = '';
+    protected $key = '';
     protected $local = 'de_DE';
     protected $fields = 'members';
     protected $guildRankPrefix = 'A_';
-    protected $memberBackground = 'http://bilder.mmorpg-mondklingen.de/bg/A_bg.png';
+    protected $memberBackground = '';
     protected $backgroundPicture = '';
     protected $hordeOrAlliance;
     /** @var Content */
@@ -248,7 +247,7 @@ class MemberList extends RoosterCollection
      */
     public function getBackgroundPicture()
     {
-        return $this->backgroundPicture;
+        return $this->baseUrl . '/images/wowrooster/background/bg' . $this->backgroundPicture . '.png';
     }
 
     /**

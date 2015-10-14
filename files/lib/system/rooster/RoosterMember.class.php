@@ -31,8 +31,6 @@ class RoosterMember extends RoosterObject
     const Moench = 10;
     const Druide = 11;
 
-    protected $baseUrl = "http://bilder.mmorpg-mondklingen.de";
-
     /**
      * Returns the Level of this Char
      *

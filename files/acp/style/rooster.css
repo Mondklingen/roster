@@ -19,3 +19,8 @@
     padding:3px;
     border-radius:5px;
 }
+
+.member-bg-images img{
+    width: 150px;
+    height: 73px;
+}

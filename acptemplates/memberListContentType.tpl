@@ -77,8 +77,6 @@
         <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.local_description{/lang}</p>
     </dd>
 
-
-<!-- for further use reserved
     <dt>
         <label for="hordeOrAlliance">
             {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction{/lang}
@@ -88,29 +86,24 @@
         <select id="hordeOrAlliance" name="contentData[hordeOrAlliance]">
             <option
                 value="1"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='1'}selected=selected{/if}
+                {if $contentData['hordeOrAlliance']|isset && $contentData['hordeOrAlliance']=='1'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_horde{/lang}
             </option>
             <option
                 value="2"
-                {if $contentData['hordeOrAlliance']|isset && $content['hordeOrAlliance']=='2'}selected=selected{/if}
+                {if $contentData['hordeOrAlliance']|isset && $contentData['hordeOrAlliance']=='2'}selected=selected{/if}
             >
                 {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_alliance{/lang}
             </option>
         </select>
         <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.fraction_description{/lang}</p>
     </dd>
--->
 
     <dt>
         <label>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.ranks{/lang}</label>
     </dt>
 
-    <!-- Ranks -->
-    <!-- Ranks -->
-    <!-- Ranks -->
-    <!-- Ranks -->
     <dt>
         <label for="rank_1">
             {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.rank.1{/lang}
@@ -340,23 +333,13 @@
             </option>
         </select>
     </dd>
-    <!-- Ranks -->
-    <!-- Ranks -->
-    <!-- Ranks -->
-    <!-- Ranks -->
-    <!-- Ranks -->
 
     <dt>
         <label for=memberbackground>
             {lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.memberbackground{/lang}
         </label>
     </dt>
-    <style>
-        .member-bg-images img{
-            width:150px;
-            height73px;
-        }
-    </style>
+
     <dd>
         <p>{lang}cms.acp.content.type.herolist.phoenix-plugins.de.input.memberbackground_description{/lang}</p>
         <fieldset class="member-bg-images">

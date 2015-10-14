@@ -23,6 +23,7 @@
 		<instruction type="acpTemplate" application="cms">acptemplates.tar</instruction>
 		<instruction type="template" application="cms">templates.tar</instruction>
 		<instruction type="language">language/*.xml</instruction>
+		<instruction type="templateListener">xml/templateListener.xml</instruction>
 		<instruction type="objectType">xml/objectType.xml</instruction>
 	</instructions>
 

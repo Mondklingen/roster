@@ -1,8 +1,8 @@
 {foreach from=$ranks item=rank}
     {if $rank->isIsText()}
-        <h2>{$rank.name}</h2>
+        <h2 class="rankHeading">{$rank.name}</h2>
     {else}
-        <img class="clearfix" src="{$rank.image}">
+        <img class="rankHeadingImage clearfix" src="{$rank.image}">
     {/if}
     {foreach from=$rank.members item=member}
         {if $member.canRender}

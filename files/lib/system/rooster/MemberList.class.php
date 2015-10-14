@@ -350,15 +350,14 @@ class MemberList extends RoosterCollection
      */
     private function initRanks()
     {
-        $currentRank = null;
         /** @var RoosterMember $member */
         foreach ($this->member as $member) {
             $rankId = $member->getRankIndex();
             if (!isset($this->ranks[(int)$rankId])) {
                 $guildRank = new GuildRank(array());
                 $this->ranks[(int)$rankId] = $guildRank;
-                $guildRank->setName($this->rankHeadings->__get('rank_' . $rankId));
-                $guildRank->setIsText($this->rankHeadings->__get('rank_is_image_'. $rankId) == 1);
+                $guildRank->setName($this->rankHeadings->__get('rank_' . ($rankId + 1)));
+                $guildRank->setIsText($this->rankHeadings->__get('rank_is_image_' . ($rankId + 1)) == 1);
             }
             $this->ranks[(int)$rankId]->addMember($member);
         }

@@ -15,8 +15,12 @@
 
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="2.0.0 Beta 8">de.codequake.cms</requiredpackage>
+		<requiredpackage minversion="2.1.0">de.codequake.cms</requiredpackage>
 	</requiredpackages>
+
+	<excludedpackages>
+		<excludedpackage version="2.2.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+	</excludedpackages>
 
 	<instructions type="install">
 		<instruction type="file" application="cms">files.tar</instruction>

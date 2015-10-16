@@ -20,6 +20,7 @@ rsync -rv --exclude files/ --exclude template/ --exclude build --exclude .git --
 cd build
 tar czf plugin.tar.gz *
 cp plugin.tar.gz ../
+cp plugin.tar.gz ../de.phoenix-plugins.fireball-plugin.tar.gz
 cd ..
 
 # Clear Build Dir

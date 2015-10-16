@@ -19,7 +19,8 @@
 	</requiredpackages>
 
 	<excludedpackages>
-		<excludedpackage version="2.2.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="2.2.0">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="3.0.0">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 
 	<instructions type="install">
